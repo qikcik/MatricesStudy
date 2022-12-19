@@ -30,7 +30,7 @@ enable_testing()
 add_executable(
         ${CMAKE_PROJECT_NAME}_tests
         ${SOURCES}
-)
+        private/MatricesUtils.cpp)
 target_link_libraries(
         ${CMAKE_PROJECT_NAME}_tests
         ${CMAKE_PROJECT_NAME}_lib

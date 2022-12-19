@@ -1,7 +1,9 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-
+#include <iostream>
 #include "Matrix.tpp"
+#include "CommonMath.tpp"
+
 
 TEST(Matrices, AddingScalarToMatrices)
 {
@@ -17,7 +19,25 @@ TEST(Matrices, AddingScalarToMatrices)
         {8.0,   9.0}
     }}};
 
+
     EXPECT_EQ( A + 5.f, C);
+}
+
+TEST(Matrices, AddingString)
+{
+    Matrix<std::string,2,2> A
+            {{{
+                      {"1",   "2"},
+                      {"3",   "4"}
+              }}};
+
+    Matrix<std::string,2,2> C
+            {{{
+                      {"1a",   "2a"},
+                      {"3a",   "4a"}
+            }}};
+
+    EXPECT_EQ( A + std::string("a"), C);
 }
 
 TEST(Matrices, MultplingScalarToMatrices)
@@ -47,13 +67,13 @@ TEST(Matrices, Adding2Matrices)
 
     Matrix<float,2,2> B
     {{{
-        {5.0,   6.0},
+        {6.0,   6.0},
         {7.0,   8.0},
     }}};
 
     Matrix<float,2,2> C
     {{{
-        {6.0,   8.0},
+        {7.0,   8.0},
         {10.0,  12.0}
     }}};
 
@@ -84,6 +104,7 @@ TEST(Matrices, Multipling2Matrices)
     EXPECT_EQ( A * B ,C);
 }
 
+
 TEST(Matrices, MatrixPow)
 {
     Matrix<float,2,2> A
@@ -92,19 +113,14 @@ TEST(Matrices, MatrixPow)
         {3.0,   4.0}
     }}};
 
-    const size_t n = 6;
-
-    auto C = A;
-    for(size_t i = 0; i!= n-1; i++)
-        C = C * A;
-
-    Matrix<float,2,2> CExp
+    Matrix<float,2,2> C
     {{{
         {5743,  8370},
         {12555, 18298}
     }}};
 
+    EXPECT_EQ(A.pow(0), A.Identity());
+    EXPECT_EQ(A.pow(1), A);
+    EXPECT_EQ(A.pow(6), C);
 
-    EXPECT_EQ(C, CExp);
 }
-

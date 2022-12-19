@@ -11,6 +11,9 @@ T factorial (T x){
     return result;
 }
 
+//e^1 = 1 + 1/1! + 1/2! + 1/3!
+//e^A = (A^1)/1! + (A^2)/2 + (A^3)/2
+
 template<typename T>
 T powexp(T x, size_t n)
 {
@@ -27,7 +30,7 @@ T powexp(T x, size_t n)
 TEST(FunctionsFromBegining, factorialOpeartions)
 {
 
-    EXPECT_EQ( factorial(5) ,120);
+    EXPECT_EQ( factorial<double>(5) ,120);
     EXPECT_EQ( factorial(10),3628800);
 
     EXPECT_EQ( factorial(0) ,1);
