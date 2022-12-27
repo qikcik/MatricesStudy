@@ -18,5 +18,9 @@ TEST(Matrices, CreateIdentity)
     }}};
 
 
+    Matrix<float,4,4> X;
+    Matrix<float,3,3> Z;
+
+
     EXPECT_EQ(A, C);
 }

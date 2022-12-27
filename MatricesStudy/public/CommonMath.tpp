@@ -10,7 +10,7 @@ T factorial (T x){
     return result;
 }
 
-//for Matrix CMath library support
+//for Matrix Math library support
 template<typename TType, size_t TYSize, size_t TXSize>
 Matrix<TType,TYSize,TXSize> pow(const Matrix<TType,TYSize,TXSize>& in_operand,size_t in_exponent)
 {
@@ -25,7 +25,7 @@ T exp(T in_operand)
 
     for (size_t accuracyIt = 1; accuracyIt < TAccuracy; accuracyIt++)
     {
-        result = result + ( pow(in_operand,accuracyIt) * (1.f/factorial(accuracyIt)) );
+        result = result + ( pow(in_operand,accuracyIt) * (1.f/(float)factorial(accuracyIt)) );
     }
     return result;
 }

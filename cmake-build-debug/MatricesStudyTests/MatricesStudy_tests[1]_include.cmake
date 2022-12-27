@@ -1,0 +1,5 @@
+if(EXISTS "/home/qik/repos/MatricesStudy/cmake-build-debug/MatricesStudyTests/MatricesStudy_tests[1]_tests.cmake")
+  include("/home/qik/repos/MatricesStudy/cmake-build-debug/MatricesStudyTests/MatricesStudy_tests[1]_tests.cmake")
+else()
+  add_test(MatricesStudy_tests_NOT_BUILT MatricesStudy_tests_NOT_BUILT)
+endif()
