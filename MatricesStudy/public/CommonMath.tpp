@@ -1,4 +1,5 @@
 #include "Matrix.hpp"
+#include "dynamic/DynamicMatrix.hpp"
 
 template<typename T>
 T factorial (T x){
@@ -16,6 +17,14 @@ Matrix<TType,TYSize,TXSize> pow(const Matrix<TType,TYSize,TXSize>& in_operand,si
 {
     return in_operand.pow(in_exponent);
 }
+
+//for Matrix Math library support
+template<typename TType>
+DynamicMatrix<TType> pow(const DynamicMatrix<TType>& in_operand,size_t in_exponent)
+{
+    return in_operand.pow(in_exponent);
+}
+
 
 template<size_t TAccuracy,typename T>
 requires (TAccuracy > 0)

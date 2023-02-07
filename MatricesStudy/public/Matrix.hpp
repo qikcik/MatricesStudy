@@ -55,8 +55,8 @@ public:
         const Matrix<TType_friend,TYSize_friend,TXSize_friend>& rhs
     );
 
-    inline size_t getXSize() {return TXSize;};
-    inline size_t getYSize() {return TXSize;};
+    inline size_t getSizeX() {return TXSize;};
+    inline size_t getSizeY() {return TXSize;};
 
     template<size_t TY, size_t TX >
     inline constexpr TType& at();
@@ -66,7 +66,6 @@ public:
 
 protected:
     TArray m_value;
-
 };
 
 

@@ -2,6 +2,7 @@
 #include <gmock/gmock.h>
 #include <iostream>
 #include "Matrix.tpp"
+#include "dynamic/DynamicMatrix.tpp"
 #include "CommonMath.tpp"
 
 TEST(Exp, RealNumber)
@@ -50,6 +51,23 @@ TEST(Exp, MatricesExpExp)
     }}};
 
     B.onEachElement(round<float,3>); // for equality
+    EXPECT_EQ(B, C);
+}
+
+TEST(Exp, DynamicMatricesExpExp)
+{
+    constexpr auto ACCURACY = 10;
+
+    auto A = DynamicMatrix<float>(2,2);
+    A.unsafeSetFromRaw({0,0,0,0});
+
+    auto B = exp<ACCURACY>(exp<ACCURACY>(A));
+
+
+    auto C = DynamicMatrix<float>(2,2);
+    C.unsafeSetFromRaw({2.718,0,0,2.718});
+
+    B.performOnEachElement(round<float,3>); // for equality
     EXPECT_EQ(B, C);
 }
 

@@ -92,7 +92,6 @@ Matrix<TType, TYSize, TXSize> operator+(
 template<typename TType, size_t TYSize, size_t TXSize>
 bool operator==(const Matrix<TType, TYSize, TXSize>& lhs, const Matrix<TType, TYSize, TXSize>& rhs)
 {
-
     for(size_t yInx = 0 ; yInx != TYSize ; yInx++)
     for(size_t xInx = 0 ; xInx != TXSize ; xInx++)
         if( lhs.at(yInx,xInx) != rhs.at(yInx,xInx) )
